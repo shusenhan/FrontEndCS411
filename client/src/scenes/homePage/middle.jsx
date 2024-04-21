@@ -19,7 +19,7 @@ const MiddlePart = () => {
     const [key, setKey] = useState(0);
 
     const getSchool = async (schoolName) =>{
-        const url = `http://localhost:3001/search/school/${schoolName}`;
+        const url = `http://localhost:3001/search/school?schoolName=${encodeURIComponent(schoolName)}`;
         const response = await fetch(url, {
             method: "GET"
         });

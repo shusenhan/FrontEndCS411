@@ -19,7 +19,7 @@ const RightPart = () => {
     const [key, setKey] = useState(0);
 
     const getSchool = async (programName) =>{
-        const url = `http://localhost:3001/search/program/${programName}`;
+        const url = `http://localhost:3001/search/program?programName=${encodeURIComponent(programName)}`;
         const response = await fetch(url, {
             method: "GET"
         });
