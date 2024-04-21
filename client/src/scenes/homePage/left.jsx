@@ -6,12 +6,15 @@ import ResultPage from "./result";
 
 const LeftPart = () => {
     const [ pageType, setPageType ] = useState("input");
+    const [ resultType, setResultType ] = useState("");
 
     return(
     <WidgetWrapper>
         <UserWidget userId={"123"} picturePath={"123"}/>
 
-        {pageType === "input" ? (<Form ChangeState={setPageType}/>) : (<ResultPage Return={setPageType}/>)}
+        {pageType === "input" ? (
+            <Form ChangeState={setPageType} ChangeResultType={setResultType}/>) : (
+            <ResultPage Return={setPageType} resultType={resultType}/>)}
     </WidgetWrapper>
     )
 }

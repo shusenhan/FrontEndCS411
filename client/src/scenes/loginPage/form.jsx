@@ -5,7 +5,6 @@ import {
     TextField,
     Typography,
     useTheme,
-    useMediaQuery
 } from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
@@ -31,7 +30,7 @@ const loginSchema = yup.object().shape({
 const initialValueRegister = {
     username:"",
     password:"",
-    gender:0
+    gender:1
 };
 
 const initialValueLogin = {
@@ -46,9 +45,9 @@ const Form = () => {
     const navigate = useNavigate();
     const isLogin = pageType === "login";
     const isRegister = pageType === "register";
-    const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
 
     const register = async(values, onSubmitProps) => {
+        console.log(values);
         const savedUserResponse = await fetch(
             "http://localhost:3001/system/reg",
             {
@@ -66,6 +65,7 @@ const Form = () => {
     };
 
     const login = async(values, onSubmitProps) => {
+        console.log("login")
         const loginResponse = await fetch(
             "http://localhost:3001/system/log",
             {
@@ -153,7 +153,6 @@ const Form = () => {
                                 name="gender"
                                 error={Boolean(touched.gender) && Boolean(errors.gender)}
                                 helperText={touched.gender && errors.gender}
-                                defaultValue={0}
                             >
                                 <MenuItem value={0}>Male</MenuItem>
                                 <MenuItem value={1}>Female</MenuItem>

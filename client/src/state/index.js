@@ -4,7 +4,8 @@ const initialState = {
     mode: "light",
     user: null,
     token: null,
-    schools:[]
+    schools:[],
+    rank:0
 };
 
 /*理论上还需要将reduer来集成到全局状态树下，然后才能用useSelector访问到状态：
@@ -32,10 +33,13 @@ export const authSlice = createSlice({
             state.token = null;
         },
         setRecommandSchools: (state, action) => {
-            state.schools = action.payload.schools
+            state.schools = action.payload.schools;
+        },
+        setRank: (state, action) => {
+            state.rank = action.payload.rank;
         }
     }
 });
 
-export const { setMode, setLogin, setLogout, setRecommandSchools } = authSlice.actions;
+export const { setMode, setLogin, setLogout, setRecommandSchools, setRank } = authSlice.actions;
 export default authSlice.reducer;

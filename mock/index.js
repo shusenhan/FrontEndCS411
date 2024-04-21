@@ -27,6 +27,26 @@ app.get('/search/program/:programName', (req, res) => {
     });
 });
 
+app.post('/rank', (req, res) => {
+    res.json({
+        rank: 5
+    });
+});
+
+
+app.post('/rec', (req, res) => {
+    res.json({
+        data: [{
+            SchoolId: 1,
+            SchoolName: "UIUC",  // 动态返回请求中的 schoolName
+            Location: 'Random City',
+            AdmissionRate: 80,
+            GPA: 3.5,
+            GRE: 300
+        }]
+    });
+});
+
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });

@@ -29,7 +29,7 @@ const UserWidget = ({ userId, picturePath }) =>{
                         fontWeight="200"
                         textAlign="center"
                     >
-                        {"Hi,"} {"Username!"} {"input your info and get a rec!"}
+                        {"Hi,"} {"Username!"}
                     </Typography>
                 </Box>
     )

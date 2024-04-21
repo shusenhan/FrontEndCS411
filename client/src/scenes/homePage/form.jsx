@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
-import { setRecommandSchools } from "state";
+import { setRecommandSchools, setRank } from "state";
 import { useDispatch } from "react-redux";
 
 const formSchema = yup.object().shape({
@@ -25,7 +25,7 @@ const initialValueRegister = {
     Age:0
 };
 
-const Form = ({ChangeState}) => {
+const Form = ({ChangeState, ChangeResultType}) => {
     const [ buttonType, setButtonType ] = useState("rank");
     const { palette } = useTheme();
     const isRank = buttonType === "rank";
@@ -43,12 +43,14 @@ const Form = ({ChangeState}) => {
             }
         );
         const school = await response.json();
-        onSubmitProps.resetForm();
+        onSubmitProps.resetForm();       
+
+        console.log(school);
 
         if(school){
             dispatch(
                 setRecommandSchools({
-                    schools:school
+                    schools:school.data
             }));
         }
     };
@@ -66,11 +68,21 @@ const Form = ({ChangeState}) => {
 
         const data = await response.json();
         onSubmitProps.resetForm();
+
+        if(data){
+            dispatch(
+                setRank({
+                    rank:data.rank
+            }));
+        }
     };
 
     const handleFormSubmit = async(values, onSubmitProps) => {
         if(isRecommand) await Recommand(values, onSubmitProps);
         if(isRank) await Rank(values, onSubmitProps);
+
+        ChangeState("result");
+        isRank ? ChangeResultType("Rank") : ChangeResultType("Recommand");
     };
 
     return (
@@ -143,7 +155,6 @@ const Form = ({ChangeState}) => {
                     <Button
                         fullWidth
                         type="submit"
-                        onClick={() => {ChangeState("result")}}
                         sx={{
                             m:"2rem 0",
                             p:"1rem",
