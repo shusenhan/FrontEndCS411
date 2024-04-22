@@ -9,6 +9,7 @@ import {
 import WidgetWrapper from "components/WidgetWrapper";
 import{ Search } from "@mui/icons-material";
 import { useState } from "react";
+import ProgramList from "components/ProgramList";
 
 const MiddlePart = () => {
     const [isSearching, setIsSearching] = useState(false);
@@ -57,22 +58,21 @@ const MiddlePart = () => {
                     value={inputValue}
                     onChange={handleInputChange}
                 />
-            </FlexBetween>
-            
+            </FlexBetween> 
         </Box>
 
         {isSearching && (
-        <FlexBetween>
+        <Box>
             <School
                 key={key}
-                schoolId={school.SchoolId}
-                schoolName={school.SchoolName}
-                location={school.Location}
-                admissionRate={school.AdmissionRate}
-                GPA={school.GPA}
-                GRE={school.GRE}
+                schoolId={school.schoolId}
+                schoolName={school.schoolName}
+                location={school.location}
+                admissionRate={school.admissionRate}
             />
-        </FlexBetween>
+            <ProgramList programs={school.programList}/>
+        </Box>
+        
         )}
     </WidgetWrapper>
     )

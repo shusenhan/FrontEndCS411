@@ -25,7 +25,6 @@ const RightPart = () => {
         });
 
         const data = await response.json();
-        console.log("data", data);
         setProgram(data);
     };
 

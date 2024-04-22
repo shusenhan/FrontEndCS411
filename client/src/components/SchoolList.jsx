@@ -2,7 +2,6 @@ import School from "./School";
 import { Box } from "@mui/material";
 
 const SchoolList = ({schools}) => {
-    console.log("SchoolList's school=", schools);
 
     return (
     <Box>
@@ -12,17 +11,13 @@ const SchoolList = ({schools}) => {
                 SchoolId, 
                 SchoolName, 
                 AdmissionRate, 
-                Location, 
-                GPA, 
-                GRE}) => (
+                Location}) => (
                     <School
                         key={SchoolId}
                         schoolId={SchoolId}
                         schoolName={SchoolName}
                         admissionRate={AdmissionRate}
                         location={Location}
-                        GPA={GPA}
-                        GRE={GRE}
                     />
                 )
         )}

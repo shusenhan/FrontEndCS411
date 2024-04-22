@@ -4,7 +4,7 @@ import { Typography, useTheme, Box } from "@mui/material";
 import SchoolImage from "./SchoolImage";
 import { useState } from "react";
 
-const School  = ({schoolId, schoolName, admissionRate, location, GPA, GRE}) => {
+const School  = ({schoolId, schoolName, admissionRate, location}) => {
     const { palette } = useTheme();
     const dark = palette.neutral.dark;
     const medium = palette.neutral.medium;
@@ -27,8 +27,6 @@ const School  = ({schoolId, schoolName, admissionRate, location, GPA, GRE}) => {
             <Box>
                 <Typography color={main} textAlign="center">AdmissionRate:{admissionRate}%</Typography>
                 <Typography color={medium} textAlign="center">Location:{location}</Typography>
-                <Typography color={medium} textAlign="center">GPA:{GPA}</Typography>
-                <Typography color={medium} textAlign="center">GRE:{GRE}</Typography>
             </Box>
         </FlexBetween>
     </Box>
