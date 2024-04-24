@@ -7,13 +7,13 @@ const ProgramList = ({programs}) => {
     <Box>
         {programs.map(
             ({
-                progromName,
+                programName,
                 schoolName, 
                 cost}) => (
                     <Program
                         schoolName={schoolName}
                         cost={cost}
-                        programName={progromName}
+                        programName={programName}
                     />
                 )
         )}
