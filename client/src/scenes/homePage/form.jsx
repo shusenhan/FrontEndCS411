@@ -115,7 +115,7 @@ const Form = ({ChangeState, ChangeResultType}) => {
                         onBlur={handleBlur}
                         onChange={handleChange}
                         value={values.programId}
-                        name="ProgramID"
+                        name="programId"
                         error={Boolean(touched.programId) && Boolean(errors.programId)}
                         helperText={touched.programId && errors.programId}
                         sx={{gridColumn: "span 4"}}
