@@ -10,7 +10,7 @@ const LeftPart = () => {
 
     return(
     <WidgetWrapper>
-        <UserWidget userId={"123"} picturePath={"123"}/>
+        <UserWidget/>
 
         {pageType === "input" ? (
             <Form ChangeState={setPageType} ChangeResultType={setResultType}/>) : (

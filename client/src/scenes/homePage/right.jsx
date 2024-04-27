@@ -65,6 +65,7 @@ const RightPart = () => {
             <ProgramList
                 key={key}
                 programs={program}
+                
             />
         )}
     </WidgetWrapper>

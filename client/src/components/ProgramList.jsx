@@ -9,11 +9,13 @@ const ProgramList = ({programs}) => {
             ({
                 programName,
                 schoolName, 
-                cost}) => (
+                cost,
+                programId}) => (
                     <Program
                         schoolName={schoolName}
                         cost={cost}
                         programName={programName}
+                        programId={programId}
                     />
                 )
         )}

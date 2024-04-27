@@ -12,6 +12,7 @@ import { setRecommandSchools, setRank } from "state";
 import { useDispatch } from "react-redux";
 
 const formSchema = yup.object().shape({
+    programId:yup.string().required("required"),
     GPA: yup.number().required("required"),
     GRE: yup.number().required("required"),
     TOEFL: yup.number().required("required"),
@@ -19,6 +20,7 @@ const formSchema = yup.object().shape({
 });
 
 const initialValueRegister = {
+    programId:"",
     GPA:0,
     GRE:0,
     TOEFL:0,
@@ -108,7 +110,16 @@ const Form = ({ChangeState, ChangeResultType}) => {
                     gridTemplateColumns="repeat(4, minmax(0, 1fr))"
                     sx={{gridColumn: "span 4"}}
                 >
-
+                    <TextField
+                        label="programId"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.programId}
+                        name="ProgramID"
+                        error={Boolean(touched.programId) && Boolean(errors.programId)}
+                        helperText={touched.programId && errors.programId}
+                        sx={{gridColumn: "span 4"}}
+                    />
                     <TextField
                         label="GPA"
                         onBlur={handleBlur}
