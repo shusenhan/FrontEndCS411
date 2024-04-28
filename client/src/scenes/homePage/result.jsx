@@ -33,10 +33,8 @@ const ResultPage = ({Return, resultType}) => {
                 color={palette.primary.dark}
                 textAlign="center"
             >
-                You have exceeded {100 - Math.floor(Rank)}% applicants!
+                You have exceeded {100 - Rank}% applicants!
             </Typography>) : (<SchoolList schools={schools}/>)}
-        Result
-        
     </Box>   
     )
 }

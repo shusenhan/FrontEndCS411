@@ -17,18 +17,18 @@ const HomePage = () => {
             gap="0.5rem"
             justifyContent="space-between"
         >
-            <Box flexBasis={isNonMobileScreens ? "29%" : undefined}>
+            <Box flexBasis={isNonMobileScreens ? "25%" : undefined}>
                 <LeftPart/>
             </Box>
 
             <Box
-                flexBasis={isNonMobileScreens ? "38%" : undefined}
+                flexBasis={isNonMobileScreens ? "44%" : undefined}
                 mt={isNonMobileScreens ? undefined : "2rem"}
             >
                 <MiddlePart/>
             </Box>
 
-            <Box flexBasis="29%">
+            <Box flexBasis="25%">
                 <RightPart/>
             </Box>
         </Box>

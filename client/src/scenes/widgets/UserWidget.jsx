@@ -5,16 +5,16 @@ const UserWidget = () =>{
     const dark = palette.neutral.dark;
 
     return(
-                <Box padding="1rem 0.5rem 1rem 0.5rem">
-                    <Typography 
-                        fontSize="16px"
-                        color={dark}
-                        fontWeight="200"
-                        textAlign="center"
-                    >
-                        {"Hi!"} 
-                    </Typography>
-                </Box>
+        <Box padding="1rem 0.5rem 1rem 0.5rem">
+            <Typography 
+                fontSize="16px"
+                color={dark}
+                fontWeight="200"
+                textAlign="center"
+            >
+                Hi, Input Your Info and Get Services!
+            </Typography>
+        </Box>
     )
 };
 
