@@ -19,8 +19,15 @@ const formSchema = yup.object().shape({
     Age: yup.number().required("required")
 });
 
-const initialValueRegister = {
-    programId:"",
+const initialValueRecommand = {
+    GPA:0,
+    GRE:0,
+    TOEFL:0,
+    Age:0
+};
+
+const initialValueRank = {
+    programId:"0",
     GPA:0,
     GRE:0,
     TOEFL:0,
@@ -90,7 +97,7 @@ const Form = ({ChangeState, ChangeResultType}) => {
     return (
     <Formik
         onSubmit={handleFormSubmit}
-        initialValues={initialValueRegister}
+        initialValues={isRecommand ? initialValueRecommand : initialValueRank}
         validationSchema={formSchema}
     >
         {({
