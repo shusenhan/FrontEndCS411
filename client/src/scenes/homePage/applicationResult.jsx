@@ -49,7 +49,13 @@ const AppResult = () => {
                 body: JSON.stringify(values)
             }
         );
-        onSubmitProps.resetForm();       
+        onSubmitProps.resetForm(); 
+        if(response === 1){
+            window.alert("Submit Successfully!");
+        }
+        else{
+            window.alert("Submit Fail!");
+        }      
     };
 
     const Delete = async(values, onSubmitProps) => {
