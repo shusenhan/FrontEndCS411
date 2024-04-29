@@ -243,7 +243,7 @@ const AppResult = () => {
                             p:"0.5rem",
                             color: palette.background.alt,
                             "&:hover": {color: palette.primary.main},
-                            backgroundColor:"red"
+                            backgroundColor:"#C5292A"
                         }}
                         size="small"  
                     >
