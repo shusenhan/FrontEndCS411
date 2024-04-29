@@ -1,6 +1,7 @@
 import FlexBetween from "./FlexBetween";
 import { Typography, useTheme, Box } from "@mui/material";
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import Divider from '@mui/material/Divider';
 
 const Program  = ({schoolName, cost, programName, programId}) => {
     const { palette } = useTheme();
@@ -13,6 +14,8 @@ const Program  = ({schoolName, cost, programName, programId}) => {
         backgroundColor: palette.background.alt,
         borderRadius: "0.75rem"}}
     >
+        
+        <Divider sx={{margin:"0.5rem 0"}}/>
         <Box gap="0.5rem" pb="0.1rem" mt="0.5rem">
             <Typography
                 variant="h4"

@@ -3,10 +3,8 @@ import { Box } from "@mui/material";
 
 const RecommandList = ({schools}) => {
 
-
     return (
     <Box>
-        SchoolList
         {schools.map(
             ({
                 programName, 

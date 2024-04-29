@@ -1,7 +1,7 @@
 import FlexBetween from "./FlexBetween";
 import { Typography, useTheme, Box } from "@mui/material";
-import { useState } from "react";
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import Divider from '@mui/material/Divider';
 
 const Recommand  = ({programName, schoolName, admissionRate, location, cost}) => {
     const { palette } = useTheme();
@@ -11,35 +11,42 @@ const Recommand  = ({programName, schoolName, admissionRate, location, cost}) =>
 
     return (
     <Box>
+        <Divider sx={{margin:"0.5rem 0"}}/>
         <Box gap="0.5rem" pb="0.1rem" mt="0.5rem">
-            <Typography
-                variant="h4"
-                color={dark}
-                fontWeight="400"
-                textAlign="center"
-            >
-                {schoolName}
-            </Typography>
-            <Typography
-                variant="h5"
-                color={medium}
-                fontWeight="300"
-                textAlign="center"
-            >
-                {programName}
-            </Typography>
-            <Typography
-                variant="h5"
-                color={medium}
-                fontWeight="300"
-                textAlign="center"
-            >
-                Location:{location}
-            </Typography>
+            <Box>
+                <Typography
+                    fontSize="16px"
+                    color={dark}
+                    fontWeight="400"
+                    textAlign="center"
+                >
+                    {schoolName}
+                </Typography>
+            </Box>
+            <Box>
+                <Typography
+                    fontSize="14px"
+                    color={dark}
+                    fontWeight="300"
+                    textAlign="center"
+                >
+                    {programName}
+                </Typography>
+            </Box>
+            <Box>
+                <Typography
+                    fontSize="12px"
+                    color={medium}
+                    fontWeight="200"
+                    textAlign="center"
+                >
+                    Location:{location}
+                </Typography>
+            </Box>
         </Box>
         <FlexBetween>
             <Typography
-                variant="h5"
+                fontSize="12px"
                 color={dark}
                 fontWeight="200"
                 textAlign="center"
@@ -50,14 +57,14 @@ const Recommand  = ({programName, schoolName, admissionRate, location, cost}) =>
         </FlexBetween>
         <FlexBetween>
             <Typography
-                variant="h5"
+                fontSize="12px"
                 color={dark}
                 fontWeight="200"
                 textAlign="center"
             >
                 Admission Rate:
             </Typography>
-            <Typography><AttachMoneyIcon margin="auto auto"/>{admissionRate}</Typography>
+            <Typography>{admissionRate}</Typography>
         </FlexBetween>
     </Box>
     )

@@ -35,16 +35,20 @@ app.post('/rank', (req, res) => {
 
 
 app.post('/rec', (req, res) => {
-    res.json({
-        data: [{
-            SchoolId: 1,
-            SchoolName: "UIUC",  // 动态返回请求中的 schoolName
-            Location: 'Random City',
-            AdmissionRate: 80,
-            GPA: 3.5,
-            GRE: 300
+    res.json([{
+            programName: "MCS",
+            schoolName: "UIUC",  // 动态返回请求中的 schoolName
+            location: 'Random City',
+            admissionRate: 0.7,
+            cost: 30000
+        },{
+            programName: "MCS2",
+            schoolName: "UIUC2",  // 动态返回请求中的 schoolName
+            location: 'Random City2',
+            admissionRate: 0.7,
+            cost: 30000
         }]
-    });
+    );
 });
 
 app.listen(port, () => {
