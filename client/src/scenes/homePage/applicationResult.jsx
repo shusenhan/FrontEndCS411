@@ -241,7 +241,6 @@ const AppResult = () => {
                         sx={{
                             m:"0 0 1rem 0",
                             p:"0.5rem",
-                            backgroundColor: palette.primary.main,
                             color: palette.background.alt,
                             "&:hover": {color: palette.primary.main},
                             backgroundColor:"red"
