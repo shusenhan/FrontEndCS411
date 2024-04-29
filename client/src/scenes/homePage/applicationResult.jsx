@@ -54,7 +54,7 @@ const AppResult = () => {
 
     const Delete = async(values, onSubmitProps) => {
         const response = await fetch(
-            "http://localhost:3001/userinput",
+            "http://localhost:3001/delete",
             {
                 method: "POST",
                 headers: {"Content-Type" : "application/json"},
