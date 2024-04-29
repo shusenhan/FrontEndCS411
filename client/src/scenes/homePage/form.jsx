@@ -5,6 +5,10 @@ import {
     TextField,
     Typography,
     useTheme,
+    FormControl,
+    InputLabel,
+    Select,
+    MenuItem
 } from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
@@ -23,7 +27,7 @@ const initialValueRecommand = {
     GPA:0,
     GRE:0,
     TOEFL:0,
-    Age:0
+    Gender:0
 };
 
 const initialValueRank = {
@@ -31,7 +35,7 @@ const initialValueRank = {
     GPA:0,
     GRE:0,
     TOEFL:0,
-    Age:0
+    Gender:0
 };
 
 const Form = ({ChangeState, ChangeResultType}) => {
@@ -160,16 +164,22 @@ const Form = ({ChangeState, ChangeResultType}) => {
                         helperText={touched.TOEFL && errors.TOEFL}
                         sx={{gridColumn: "span 4"}}
                     />
-                    <TextField
-                        label="Age"
-                        onBlur={handleBlur}
-                        onChange={handleChange}
-                        value={values.Age}
-                        name="Age"
-                        error={Boolean(touched.Age) && Boolean(errors.Age)}
-                        helperText={touched.Age && errors.Age}
-                        sx={{gridColumn: "span 4"}}
-                    />
+                    <FormControl fullWidth sx={{gridColumn: "span 4"}}>
+                        <InputLabel id="Gender">Gender</InputLabel>
+                        <Select
+                            labelId="Gender"
+                            label="Gender"
+                            onBlur={handleBlur}
+                            onChange={handleChange}
+                            value={values.gender}
+                            name="Gender"
+                            error={Boolean(touched.Gender) && Boolean(errors.Gender)}
+                            helperText={touched.Gender && errors.Gender}
+                        >
+                            <MenuItem value={0}>Male</MenuItem>
+                            <MenuItem value={1}>Female</MenuItem>
+                        </Select>
+                    </FormControl>
                 </Box>
 
                 <Box>
