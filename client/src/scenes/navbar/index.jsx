@@ -11,10 +11,8 @@ import {
     useMediaQuery
 } from "@mui/material";
 import{
-    Message,
     DarkMode,
     LightMode,
-    Help,
     Menu,
     Close
 } from "@mui/icons-material";
@@ -68,8 +66,6 @@ const Navbar = () => {
                         <LightMode sx={{color: dark, fontSize: "25px"}}/>
                     )}
                 </IconButton>
-                <Message sx={{fontSize: "25px"}}/>
-                <Help sx={{fontSize: "25px"}}/>
                 <FormControl variant="standard" value={fullName}>
                     <Select
                         value={fullName}
@@ -126,8 +122,6 @@ const Navbar = () => {
                             <LightMode sx={{color: dark, fontSize: "25px"}}/>
                         )}
                     </IconButton>
-                    <Message sx={{fontSize: "25px"}}/>
-                    <Help sx={{fontSize: "25px"}}/>
                     <FormControl variant="standard" value={fullName}>
                         <Select
                             value={fullName}
