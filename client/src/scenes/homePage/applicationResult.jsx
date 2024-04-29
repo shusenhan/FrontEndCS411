@@ -11,6 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import { useState } from "react";
+import notify from "components/Toast";
 
 const formSchema = yup.object().shape({
     SchoolId:yup.string().required("required"),
@@ -49,12 +50,16 @@ const AppResult = () => {
                 body: JSON.stringify(values)
             }
         );
-        onSubmitProps.resetForm(); 
-        if(response === 1){
-            window.alert("Submit Successfully!");
+        onSubmitProps.resetForm();
+        const result = response.text(); 
+
+        if(result === "1"){
+            // window.alert("Submit Successfully!");
+            notify("Submit Successfully!");
         }
         else{
-            window.alert("Submit Fail!");
+            // window.alert("Submit Fail!");
+            notify("Submit Fail!");
         }      
     };
 
@@ -67,7 +72,17 @@ const AppResult = () => {
                 body: JSON.stringify(values)
             }
         );
-        onSubmitProps.resetForm();       
+        onSubmitProps.resetForm();  
+        const result = response.text(); 
+
+        if(result === "1"){
+            // window.alert("Delete Successfully!");
+            notify("Delete Successfully!");
+        }
+        else{
+            // window.alert("Delete Fail!");
+            notify("Delete Fail!");
+        }     
     };
 
     const handleFormSubmit = async(values, onSubmitProps) => {
@@ -237,7 +252,7 @@ const AppResult = () => {
                     <Button
                         fullWidth
                         type="submit"
-                        onClick={() => setButtonType("delete")}
+                        onClick={() => {setButtonType("delete")}}
                         sx={{
                             m:"0 0 1rem 0",
                             p:"0.5rem",
@@ -248,6 +263,11 @@ const AppResult = () => {
                         size="small"  
                     >
                         Delete
+                    </Button>
+                    <Button
+                        onClick={() => notify("test")}  
+                    >
+                        TEST
                     </Button>
                 </Box>
             </form>

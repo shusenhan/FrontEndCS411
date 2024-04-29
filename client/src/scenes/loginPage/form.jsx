@@ -10,11 +10,11 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setLogin } from "state";
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
+import notify from "components/Toast";
 
 const registerSchema = yup.object().shape({
     username: yup.string().required("required"),
@@ -56,11 +56,15 @@ const Form = () => {
                 body: JSON.stringify(values)
             }
         );
-        const savedUser = await savedUserResponse.json();
+        const savedUser = await savedUserResponse.text();
         onSubmitProps.resetForm();
 
-        if(savedUser){
+        if(savedUser === "1"){
             setPageTpye("login");
+        }
+        else{
+            // window.alert("Registation Fail!");
+            notify("Registation Fail!");
         }
     };
 
@@ -75,17 +79,15 @@ const Form = () => {
             }
         );
 
-        const loggedIn = await loginResponse.json();
+        const loggedIn = await loginResponse.text();
         onSubmitProps.resetForm();
 
-        if(loggedIn){
-            dispatch(
-                setLogin({
-                    user: 1,
-                    token: null
-            }));
-
+        if(loggedIn === "1"){
             navigate("/home");
+        }
+        else{
+            // window.alert("Password or Username Wrong!");
+            notify("Password or Username Wrong!");
         }
     };
 
