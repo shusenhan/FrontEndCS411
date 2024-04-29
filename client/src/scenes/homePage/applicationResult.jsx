@@ -10,6 +10,7 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
+import { useState } from "react";
 
 const formSchema = yup.object().shape({
     SchoolId:yup.string().required("required"),
@@ -37,6 +38,7 @@ const initialValueRegister = {
 
 const AppResult = () => {
     const { palette } = useTheme();
+    const [buttonType, setButtonType] = useState("submit");
 
     const AppResultSubmit = async(values, onSubmitProps) => {
         const response = await fetch(
@@ -50,8 +52,27 @@ const AppResult = () => {
         onSubmitProps.resetForm();       
     };
 
+    const Delete = async(values, onSubmitProps) => {
+        const response = await fetch(
+            "http://localhost:3001/userinput",
+            {
+                method: "POST",
+                headers: {"Content-Type" : "application/json"},
+                body: JSON.stringify(values)
+            }
+        );
+        onSubmitProps.resetForm();       
+    };
+
     const handleFormSubmit = async(values, onSubmitProps) => {
-        await AppResultSubmit(values, onSubmitProps);
+        if(buttonType === 'submit'){
+            console.log("submit!!!");
+            await AppResultSubmit(values, onSubmitProps);
+        }
+        else{
+            console.log("delete!!!");
+            await Delete(values, onSubmitProps);
+        }
     };
 
     return (
@@ -195,8 +216,9 @@ const AppResult = () => {
                     <Button
                         fullWidth
                         type="submit"
+                        onClick={() => setButtonType("submit")}
                         sx={{
-                            m:"2rem 0",
+                            m:"1.5rem 0",
                             p:"0.5rem",
                             backgroundColor: palette.primary.main,
                             color: palette.background.alt,
@@ -205,6 +227,22 @@ const AppResult = () => {
                         size="small"  
                     >
                         Submit
+                    </Button>
+                    <Button
+                        fullWidth
+                        type="submit"
+                        onClick={() => setButtonType("delete")}
+                        sx={{
+                            m:"0 0 1rem 0",
+                            p:"0.5rem",
+                            backgroundColor: palette.primary.main,
+                            color: palette.background.alt,
+                            "&:hover": {color: palette.primary.main},
+                            backgroundColor:"red"
+                        }}
+                        size="small"  
+                    >
+                        Delete
                     </Button>
                 </Box>
             </form>
