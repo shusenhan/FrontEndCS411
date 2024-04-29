@@ -1,4 +1,4 @@
-import SchoolList from "components/SchoolList";
+import RecommandList from "components/RecommandList";
 import { useSelector } from "react-redux";
 import FlexBetween from "components/FlexBetween";
 import { useTheme, Typography, Box } from "@mui/material";
@@ -34,7 +34,7 @@ const ResultPage = ({Return, resultType}) => {
                 textAlign="center"
             >
                 You have exceeded {100 - Rank}% applicants!
-            </Typography>) : (<SchoolList schools={schools}/>)}
+            </Typography>) : (<RecommandList schools={schools}/>)}
     </Box>   
     )
 }

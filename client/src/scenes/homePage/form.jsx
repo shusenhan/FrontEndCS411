@@ -56,7 +56,7 @@ const Form = ({ChangeState, ChangeResultType}) => {
         if(school){
             dispatch(
                 setRecommandSchools({
-                    schools:school.data
+                    schools:school
             }));
         }
     };
