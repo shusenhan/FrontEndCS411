@@ -41,7 +41,7 @@ const AppResult = () => {
             "http://localhost:3001/rec",
             {
                 method: "POST",
-                header: {"Content-Type" : "application/json"},
+                headers: {"Content-Type" : "application/json"},
                 body: JSON.stringify(values)
             }
         );

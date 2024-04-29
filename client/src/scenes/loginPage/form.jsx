@@ -52,7 +52,7 @@ const Form = () => {
             "http://localhost:3001/system/reg",
             {
                 method: "POST",
-                header: {"Content-Type" : "application/json"},
+                headers: {"Content-Type" : "application/json"},
                 body: JSON.stringify(values)
             }
         );
@@ -70,7 +70,7 @@ const Form = () => {
             "http://localhost:3001/system/log",
             {
                 method: "POST",
-                header: {"Content-Type" : "application/json"},
+                headers: {"Content-Type" : "application/json"},
                 body: JSON.stringify(values)
             }
         );

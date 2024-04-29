@@ -40,7 +40,7 @@ const Form = ({ChangeState, ChangeResultType}) => {
             "http://localhost:3001/rec",
             {
                 method: "POST",
-                header: {"Content-Type" : "application/json"},
+                headers: {"Content-Type" : "application/json"},
                 body: JSON.stringify(values)
             }
         );
@@ -60,10 +60,10 @@ const Form = ({ChangeState, ChangeResultType}) => {
     const Rank = async(values, onSubmitProps) => {
         console.log("Rank");
         const response = await fetch(
-            "http://localhost:3001/rank",
+            "http://localhost:3001/userinput",
             {
                 method: "POST",
-                header: {"Content-Type" : "application/json"},
+                headers: {"Content-Type" : "application/json"},
                 body: JSON.stringify(values)
             }
         );
