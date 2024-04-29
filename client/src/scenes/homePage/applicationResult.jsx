@@ -13,6 +13,7 @@ import FormControl from '@mui/material/FormControl';
 
 const formSchema = yup.object().shape({
     SchoolId:yup.string().required("required"),
+    ProgramId:yup.string().required("required"),
     GPA: yup.number().required("required"),
     GRE: yup.number().required("required"),
     TOEFL: yup.number().required("required"),
@@ -24,6 +25,7 @@ const formSchema = yup.object().shape({
 
 const initialValueRegister = {
     SchoolId:"",
+    ProgramId:"",
     GPA:0,
     GRE:0,
     TOEFL:0,
@@ -38,7 +40,7 @@ const AppResult = () => {
 
     const AppResultSubmit = async(values, onSubmitProps) => {
         const response = await fetch(
-            "http://localhost:3001/rec",
+            "http://localhost:3001/userinput",
             {
                 method: "POST",
                 headers: {"Content-Type" : "application/json"},
@@ -83,6 +85,17 @@ const AppResult = () => {
                         name="SchoolId"
                         error={Boolean(touched.SchoolId) && Boolean(errors.SchoolId)}
                         helperText={touched.SchoolId && errors.SchoolId}
+                        sx={{gridColumn: "span 4"}}
+                        size="small"
+                    />
+                    <TextField
+                        label="ProgramId"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        value={values.ProgramId}
+                        name="ProgramId"
+                        error={Boolean(touched.ProgramId) && Boolean(errors.ProgramId)}
+                        helperText={touched.ProgramId && errors.ProgramId}
                         sx={{gridColumn: "span 4"}}
                         size="small"
                     />
@@ -159,7 +172,7 @@ const AppResult = () => {
                         size="small"
                     />
                     <FormControl fullWidth sx={{gridColumn: "span 4"}}>
-                        <InputLabel id="Approval">Gender</InputLabel>
+                        <InputLabel id="Approval">Approval</InputLabel>
                         <Select
                             labelId="Approval"
                             label="Approval"

@@ -60,7 +60,7 @@ const Form = ({ChangeState, ChangeResultType}) => {
     const Rank = async(values, onSubmitProps) => {
         console.log("Rank");
         const response = await fetch(
-            "http://localhost:3001/userinput",
+            "http://localhost:3001/rank",
             {
                 method: "POST",
                 headers: {"Content-Type" : "application/json"},
