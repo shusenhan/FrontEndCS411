@@ -51,9 +51,9 @@ const AppResult = () => {
             }
         );
         onSubmitProps.resetForm();
-        const result = response.text(); 
+        const result = await response.text(); 
 
-        if(result === "1"){
+        if(result === '1'){
             // window.alert("Submit Successfully!");
             notify("Submit Successfully!");
         }
@@ -73,7 +73,7 @@ const AppResult = () => {
             }
         );
         onSubmitProps.resetForm();  
-        const result = response.text(); 
+        const result = await response.text(); 
 
         if(result === "1"){
             // window.alert("Delete Successfully!");
