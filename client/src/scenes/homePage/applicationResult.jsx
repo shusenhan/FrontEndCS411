@@ -14,7 +14,6 @@ import { useState } from "react";
 import notify from "components/Toast";
 
 const formSchema = yup.object().shape({
-    SchoolId:yup.string().required("required"),
     ProgramId:yup.string().required("required"),
     GPA: yup.number().required("required"),
     GRE: yup.number().required("required"),
@@ -26,7 +25,6 @@ const formSchema = yup.object().shape({
 });
 
 const initialValueRegister = {
-    SchoolId:"",
     ProgramId:"",
     GPA:0,
     GRE:0,
@@ -119,17 +117,6 @@ const AppResult = () => {
                     gridTemplateColumns="repeat(4, minmax(0, 1fr))"
                     sx={{gridColumn: "span 4"}}
                 >
-                    <TextField
-                        label="SchoolId"
-                        onBlur={handleBlur}
-                        onChange={handleChange}
-                        value={values.SchoolId}
-                        name="SchoolId"
-                        error={Boolean(touched.SchoolId) && Boolean(errors.SchoolId)}
-                        helperText={touched.SchoolId && errors.SchoolId}
-                        sx={{gridColumn: "span 4"}}
-                        size="small"
-                    />
                     <TextField
                         label="ProgramId"
                         onBlur={handleBlur}
